@@ -19,24 +19,35 @@ Install the Supabase CLI globally by running:
 npm install -g supabase
 ```
 
+### - Second method to install supabase CLI
+Follow the instruction given [here](https://supabase.com/docs/guides/local-development/cli/getting-started) for your operating systems
+
 ## 4. Run Supabase Locally
 Start the Supabase local development environment using:
 ```sh
 supabase start
 ```
+## 5. Open Supabase studio on browser
+Go to the studio url shown in the terminal after supabase started
 
-## 5. Update Environment Variables
-Ensure that all required environment variables are set in your `.env` file.
+## 6. Update Environment Variables
+Rename .env.example to .env.local and ensure that all required environment variables are set in your `.env` file.
 
-## 6. Install ESLint and Prettier Extensions
+## 7. Install ESLint and Prettier Extensions
 ### For VS Code:
 - Install **ESLint** extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 - Install **Prettier** extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
 
-## 7. Enable Format on Save
+## 8. Enable Format on Save
 To automatically format your code on save in VS Code:
 1. Open **Settings** (`Ctrl + ,` or `Cmd + ,` on Mac).
 2. Search for "Format On Save".
 3. Enable **Editor: Format On Save**.
+
+## 9. Run development enviroment
+Run the following command to start the development enviroment
+``` sh 
+npm run dev 
+```
 
 You are now ready to start working on the project! 🎉
