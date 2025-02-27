@@ -29,7 +29,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --primary-accent: 279 72% 58%;
+    --primary-accent: 265 83% 57%;
   }
 
   .dark {
@@ -57,7 +57,7 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --primary-accent: 279 72% 58%;
+    --primary-accent: 265 83% 57%;
   }
 }
 
@@ -66,6 +66,130 @@
     @apply border-border;
   }
 
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@font-face {
+  font-family: 'graphik';
+  src: url('/fonts/Graphik/Graphik-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'graphik';
+  src: url('/fonts/Graphik/Graphik-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'graphik';
+  src: url('/fonts/Graphik/Graphik-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'graphik';
+  src: url('/fonts/Graphik/Graphik-SemiboldItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'graphik';
+  src: url('/fonts/Graphik/Graphik-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'graphik';
+  src: url('/fonts/Graphik/Graphik-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'graphik';
+  src: url('/fonts/Graphik/Graphik-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'graphik';
+  src: url('/fonts/Graphik/Graphik-RegularItalic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/**
+* @license
+*
+* Font Family: Alpino
+* Designed by: Alisa Nowak, Jérémie Hornus
+* URL: https://www.fontshare.com/fonts/alpino
+* © 2025 Indian Type Foundry
+*
+* Alpino Light 
+* Alpino Regular 
+* Alpino Medium 
+* Alpino Bold 
+
+*
+*/
+
+@font-face {
+  font-family: 'Alpino-Light';
+  src: url('/fonts/Alpino-Light.woff2') format('woff2'),
+    url('/fonts/Alpino-Light.woff') format('woff'),
+    url('/fonts/Alpino-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alpino-Regular';
+  src: url('/fonts/Alpino-Regular.woff2') format('woff2'),
+    url('/fonts/Alpino-Regular.woff') format('woff'),
+    url('/fonts/Alpino-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alpino-Medium';
+  src: url('/fonts/Alpino-Medium.woff2') format('woff2'),
+    url('/fonts/Alpino-Medium.woff') format('woff'),
+    url('/fonts/Alpino-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Alpino-Bold';
+  src: url('/fonts/Alpino-Bold.woff2') format('woff2'),
+    url('/fonts/Alpino-Bold.woff') format('woff'),
+    url('/fonts/Alpino-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+/*---break---
+*/
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
   body {
     @apply bg-background text-foreground;
   }

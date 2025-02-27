@@ -1,3 +1,4 @@
+import { Toaster } from 'sonner';
 import './globals.css';
 
 const defaultUrl = process.env.VERCEL_URL
@@ -17,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body className='font-default'>
+        {children}
+        <Toaster richColors />
+      </body>
     </html>
   );
 }
