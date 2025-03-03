@@ -43,10 +43,12 @@ export default function Navbar() {
 
     return <nav className="flex justify-between items-center fixed z-10 w-screen px-8 sm:px-16 pt-2">
         <div>
-            <Image width={70} alt="Logo" priority src={logo} />
+            <Link href='/'>
+                <Image width={70} alt="Logo" priority src={logo} />
+            </Link>
         </div>
         <div className="flex justify-end items-center">
-            <Link className="hover:underline" href="#">About</Link>
+            {/* <Link className="hover:underline" href="#">About</Link> */}
             <Dialog>
                 <DialogTrigger asChild><Button className="sm:px-8 h-9 ml-4 sm:ml-32" variant="primary">Get In Early</Button></DialogTrigger>
                 <DialogContent>

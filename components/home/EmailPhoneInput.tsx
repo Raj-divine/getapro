@@ -39,7 +39,7 @@ export default function EmailPhoneInput() {
     return <>
         <div className="flex">
             <form onSubmit={handleSubmit} className="flex w-full">
-                <Input id="emailOrPhone" value={emailOrPhone} onChange={(e) => setEmailOrPhone(e.target.value)} placeholder="Please enter you email or phone number to get early access" className="border-none w-3/5 rounded-r-none" type="text" />
+                <Input id="emailOrPhone" value={emailOrPhone} onChange={(e) => setEmailOrPhone(e.target.value)} placeholder="Email or phone number to get early access" className="border-none w-3/5 rounded-r-none" type="text" />
                 <Button disabled={isLoading} variant="primary" className="rounded-l-none">Get In Early</Button>
             </form>
         </div>
