@@ -2,7 +2,7 @@
 import { Button } from "../ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import logo from '../../public/assets/imgs/logo.webp';
+import logo from '../../public/assets/svgs/logo.svg';
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
@@ -41,14 +41,14 @@ export default function Navbar() {
         setEmailOrPhone('');
     };
 
-    return <nav className="flex justify-between items-center fixed z-10 w-screen px-16 pt-2">
+    return <nav className="flex justify-between items-center fixed z-10 w-screen px-8 sm:px-16 pt-2">
         <div>
-            <Image width={100} height={79} alt="Logo" priority src={logo} />
+            <Image width={70} alt="Logo" priority src={logo} />
         </div>
-        <div>
+        <div className="flex justify-end items-center">
             <Link className="hover:underline" href="#">About</Link>
             <Dialog>
-                <DialogTrigger asChild><Button className="px-8 h-9 ml-32" variant="primary">Get In Early</Button></DialogTrigger>
+                <DialogTrigger asChild><Button className="sm:px-8 h-9 ml-4 sm:ml-32" variant="primary">Get In Early</Button></DialogTrigger>
                 <DialogContent>
                     <DialogHeader>
                         <DialogTitle>Get in early!</DialogTitle>

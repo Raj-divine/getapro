@@ -1,6 +1,6 @@
 import EmailPhoneInput from "@/components/home/EmailPhoneInput";
+import LadyLawyerImage from "@/components/home/LadyLawyerImage";
 import Navbar from "@/components/layout/Navbar";
-import { BellDotIcon, MessageCircleMore, Video } from "lucide-react";
 
 export default function Home() {
   return (
@@ -8,17 +8,17 @@ export default function Home() {
       <main className='h-screen bg-[#f1f1f1]'>
         <Navbar />
         <div className="flex justify-between h-full">
-          <div className="w-[55%] pl-16 md:mt-64 lg:mt-56 xl:mt-44">
-            <h1 className="font-heading font-semibold md:text-6xl lg:text-7xl xl:text-8xl ">Connecting you with <span className="italic text-primary-accent">Wisdom</span></h1>
-            <h2 className="md:text-xl lg:text-2xl xl:text-3xl my-5 w-4/5">Get connected with the best minds in legal and financial fields.</h2>
+          <div className="w-full md:w-[55%] max-md:px-8 pl-8 sm:pl-16 max-sm:pt-[40%] max-md:pt-[20%] md:mt-64 lg:mt-56 xl:mt-44 max-md:bg-[url('/assets/svgs/home-page-abstract.svg')] bg-[240px_54%] min-[430px]:bg-[240px_54%] bg-no-repeat">
+            <h1 className="font-heading font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl ">Connecting you with <span className="italic text-primary-accent">Wisdom</span></h1>
+            <h2 className="text-md md:text-xl lg:text-2xl xl:text-3xl my-5 w-4/5">Get connected with the best minds in legal and financial fields.</h2>
             <EmailPhoneInput />
-          </div>
-          <div className="bg-[url('/assets/svgs/home-page-abstract.svg')] h-full w-[45%] bg-[0_64%] flex items-center justify-center">
-            <div className="bg-red-500 w-3/4 aspect-square rounded-2xl relative bg-[url('/assets/imgs/lady-lawyer.webp')] bg-cover">
-              <div className="bg-white text-2xl -right-10 -top-5 rounded-md absolute px-3 py-1 flex items-center"> <span className="mr-4 text-orange-400"><BellDotIcon /></span> Financial Planners</div>
-              <div className="bg-white text-2xl -left-16 top-24 rounded-md absolute px-3 py-1 flex items-center"> <span className="mr-4 text-orange-400"><MessageCircleMore /></span> Lawyers</div>
-              <div className="bg-white text-2xl left-28 -bottom-5 rounded-md absolute px-3 py-1 flex items-center"> <span className="mr-4 text-orange-400"><Video /></span> Accountants</div>
+            <div className="mt-10 flex justify-center md:hidden">
+              <LadyLawyerImage />
             </div>
+
+          </div>
+          <div className="bg-[url('/assets/svgs/home-page-abstract.svg')] h-full hidden w-[45%] bg-[0_64%] md:flex items-center justify-center">
+            <LadyLawyerImage />
           </div>
         </div>
       </main>
