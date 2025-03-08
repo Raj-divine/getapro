@@ -16,7 +16,7 @@ import {
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Checkbox } from '../ui/checkbox';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { createClient } from '@/utils/supabase/client';
 import isContactValid from '@/utils/isContactValid';
@@ -25,6 +25,7 @@ import { usePathname } from 'next/navigation';
 export default function Navbar() {
   const supabase = createClient();
 
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [emailOrPhone, setEmailOrPhone] = useState('');
   const [isProfessional, setIsProfessional] = useState(false);
@@ -58,8 +59,17 @@ export default function Navbar() {
     setEmailOrPhone('');
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className='flex justify-between items-center fixed z-10 w-screen px-8 sm:px-16 pt-2'>
+    <nav className={`flex justify-between items-center fixed z-10 w-screen px-8 sm:px-16 pt-2 transition-colors duration-200 ${isScrolled ? 'bg-white shadow' : ''}`}>
       <div>
         <Link href='/'>
           <Image width={70} alt='Logo' priority src={logo} />
