@@ -6,7 +6,7 @@ export default function About() {
             <main className='h-screen bg-[#f1f1f1]'>
                 <section className="flex flex-col justify-center items-center h-[60vh] bg-primary-accent/5 px-3">
                     <div className="relative w-full h-1/2">
-                        <Image src="/assets/imgs/getapro-logo.png" className="object-contain" fill alt="getapro logo" />
+                        <Image src="/assets/imgs/getapro-logo.png" loading="lazy" className="object-contain" fill alt="getapro logo" />
                     </div>
                     <h3 className="text-center text-heading text-xl font-medium ">
                         Get the best professionals for your legal and financial needs
