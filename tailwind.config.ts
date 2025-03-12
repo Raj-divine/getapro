@@ -18,6 +18,10 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        'xxs': '375px',
+        'xs': '531px',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -75,7 +79,7 @@ const config = {
       fontFamily: {
         'heading': ['graphik', 'sans-serif'],
         'default': ['alpino', 'sans-serif']
-      }
+      },
     },
   },
 

@@ -1,15 +1,31 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { Button } from '@/components/ui/button';
+import { ArrowRightIcon } from '@radix-ui/react-icons';
 
 export default function HeroSection() {
-    return <section className="flex justify-center py-24 px-16">
-        <div className="flex flex-col items-center w-2/3 text-center">
-            <h1 className="font-heading text-7xl font-bold leading-tight">Connecting you with <span className="text-primary">Wisdom</span></h1>
-            <h2 className="text-xl">Book instant 1-on-1 video consultations with verified legal and financial professionals. No hassle, no uncertainty—just meaningful connections.</h2>
-            <div className="flex mt-8">
-                <Button variant="primary" className="mr-2">Find a Professional <ArrowRightIcon className="ml-1" /> </Button>
-                <Button variant="secondary">Join as Professional</Button>
-            </div>
+  return (
+    <section className='flex justify-center pt-5 xs:px-2 md:px-0'>
+      <div className='flex flex-col items-center w-full text-center lg:px-10'>
+        <div className='w-full xl:px-52 lg:px-20 md:px-20'>
+          <h1 className='font-heading lg:text-8xl max-sm:text-5xl xs:text-4xl sm:text-6xl  font-bold leading-tight md:text-6xl cs:text-5xl  '>
+            Connecting you with <span className='text-primary'>Wisdom</span>
+          </h1>
         </div>
-    </section>;
+        <div className='w-full lg:px-40 xl:px-72 md:px-20 px-2'>
+          <h2 className='text-sm sm:text-lg lg:text-2xl mt-3 md:mt-5'>
+            Book instant 1-on-1 video consultations with verified legal and
+            financial professionals. No hassle, no uncertainty—just meaningful
+            connections.
+          </h2>
+        </div>
+        <div className='flex mt-8'>
+          <Button variant='primary' className='max-sm:mr-3 max-sm:h-9 sm:mr-2'>
+            Find a Professional <ArrowRightIcon className='ml-1 ' />{' '}
+          </Button>
+          <Button variant='secondary' className='max-sm:h-9'>
+            Join as Professional
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
 }
