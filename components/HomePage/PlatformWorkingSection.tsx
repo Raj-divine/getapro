@@ -8,7 +8,7 @@ interface StepCardProps {
 }
 
 function StepCard({ title, description, children }: StepCardProps) {
-    return <div className="flex flex-col items-center justify-center border border-violet-200 transition-transform bg-zinc-200 p-6 w-1/3 rounded hover:-translate-y-2">
+    return <div className="flex flex-col items-center justify-center border cursor-default border-violet-200 transition-transform bg-zinc-200 p-6 w-1/3 rounded hover:-translate-y-2">
         <div className="text-primary bg-primary/30 p-3 rounded-full">
             {children}
         </div>

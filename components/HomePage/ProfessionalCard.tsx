@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function ProfessionalCard({ name, profession, specialties, image, price }: Props) {
-    return <div className="h-full bg-white border border-violet-200 rounded overflow-hidden">
+    return <div className="h-full bg-white border cursor-default border-violet-200 rounded overflow-hidden">
         <div className="relative w-full h-[45%]">
             <Image src={image} loading="lazy" className="object-cover" fill alt="Pro" />
         </div>
