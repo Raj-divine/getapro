@@ -1,3 +1,4 @@
+import CategorySection from "@/components/HomePage/CategorySection";
 import HeroSection from "@/components/HomePage/HeroSection";
 import LegalCategorySection from "@/components/HomePage/LegalCategorySection";
 import PlatformWorkingSection from "@/components/HomePage/PlatformWorkingSection";
@@ -9,6 +10,7 @@ export default function Home() {
         <HeroSection />
         <LegalCategorySection />
         <PlatformWorkingSection />
+        <CategorySection />
       </main>
     </>
   );

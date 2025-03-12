@@ -20,7 +20,7 @@ function StepCard({ title, description, children }: StepCardProps) {
 export default function PlatformWorkingSection() {
     return <section className="py-24 px-16 flex flex-col items-center">
         <div className="flex flex-col items-center">
-            <h3 className="font-heading text-5xl font-bold">How Get<span className="text-primary">A</span>Pro Works</h3>
+            <h3 className="font-heading text-5xl font-bold">How Get<span className="text-primary">A</span>Pro works</h3>
             <h4 className="text-xl text-gray-500">Get expert advice in three simple steps</h4>
         </div>
         <div className="flex justify-center gap-7 w-4/5 mt-16">
