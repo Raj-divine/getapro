@@ -1,3 +1,4 @@
+import CallToActionSection from "@/components/HomePage/CallToAction";
 import CategorySection from "@/components/HomePage/CategorySection";
 import HeroSection from "@/components/HomePage/HeroSection";
 import LegalCategorySection from "@/components/HomePage/LegalCategorySection";
@@ -11,6 +12,7 @@ export default function Home() {
         <LegalCategorySection />
         <PlatformWorkingSection />
         <CategorySection />
+        <CallToActionSection />
       </main>
     </>
   );
