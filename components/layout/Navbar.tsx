@@ -19,7 +19,7 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav className={`flex justify-between items-center w-full z-10 px-8 sm:px-16 py-2 transition-colors duration-200 border-b ${isScrolled ? 'bg-white shadow-sm fixed' : ''}`}>
+        <nav className={`flex justify-between items-center w-full z-50 px-8 sm:px-16 py-2 transition-colors duration-200 border-b ${isScrolled ? 'bg-white shadow-sm fixed' : ''}`}>
             <div className='w-1/5'>
                 <Link href='/'>
                     <Image width={70} alt='Logo' priority src={logo} />
