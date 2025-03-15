@@ -4,7 +4,7 @@ import SignUpForm from "./SignUpForm";
 export default function FormSection() {
 
     return <section className="bg-violet-100 px-16 py-4">
-        <div className="flex justify-between items-center h-[70vh] relative ">
+        <div className="flex justify-between items-center min-h-[640px] relative ">
             <div className="w-1/2 z-20">
                 <h1 className="font-heading text-5xl font-bold leading-tight">Grow your <span className="text-primary">Practice</span>, Maximize your <span className="text-primary">Earnings</span></h1>
                 <p className="text-xl text-gray-500 w-4/5 mt-5">Join <span className="text-primary">GetAPro</span> and connect with clients seeking your expertise. Set your own rates, manage your schedule, and boost your income with our trusted platform.</p>
