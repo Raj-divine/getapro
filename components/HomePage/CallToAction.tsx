@@ -1,10 +1,10 @@
-import { ArrowRightIcon } from '@radix-ui/react-icons';
-import { Button } from '../ui/button';
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { Button } from "../ui/button";
 
 export default function CallToActionSection() {
   return (
     <section className='px-16 py-20 max-xs:px-10 flex flex-col justify-center items-center'>
-      <h2 className='font-heading xs:text-4xl md:text-6xl font-bold text-center text-3xl  '>
+      <h2 className='font-heading text-3xl md:text-5xl font-bold text-center'>
         Ready to connect with a professional?
       </h2>
       <p className='text-xl text-gray-500 text-center mt-5'>

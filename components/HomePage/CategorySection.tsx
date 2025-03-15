@@ -66,7 +66,7 @@ export default function CategorySection() {
 
   return (
     <section className='bg-violet-100 px-6 xs:px-10 sm:px-10 lg:px-16 py-20'>
-      <h3 className='font-heading  xs:text-4xl md:text-6xl  font-bold text-center text-3xl r '>
+      <h3 className='font-heading text-3xl md:text-5xl font-bold text-center'>
         Browse by category
       </h3>
       <div className='grid grid-cols-2 xs:grid xs:grid-cols-2 sm:grid sm:grid-cols-2 md:grid md:grid-cols-4 lg:grid lg:grid-cols-4 gap-4 place-items-center mt-10 xl:grid xl:grid-cols-8'>

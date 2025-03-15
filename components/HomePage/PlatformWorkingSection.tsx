@@ -1,5 +1,5 @@
-import { CalendarDays, Search, Video } from 'lucide-react';
-import { ReactNode } from 'react';
+import { CalendarDays, Search, Video } from "lucide-react";
+import { ReactNode } from "react";
 
 interface StepCardProps {
   title: string;
@@ -21,9 +21,9 @@ function StepCard({ title, description, children }: StepCardProps) {
 
 export default function PlatformWorkingSection() {
   return (
-    <section className='py-24 px-10 xs:px-16 md:px-10 lg:px-10 xl:px-16 flex flex-col items-center '>
+    <section className='py-24 px-7 xs:px-16 md:px-10 lg:px-10 xl:px-16 flex flex-col items-center '>
       <div className='flex flex-col items-center '>
-        <h3 className='font-heading xs:text-4xl md:text-6xl font-bold text-center text-3xl'>
+        <h3 className='font-heading xs:text-4xl text-3xl md:text-5xl font-bold text-center'>
           How Get<span className='text-primary'>A</span>Pro works
         </h3>
         <h4 className='xs:text-xl text-lg text-gray-500 text-center mt-5'>
