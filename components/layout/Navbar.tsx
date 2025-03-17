@@ -19,7 +19,7 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav className={`flex justify-between items-center w-full z-50 px-8 sm:px-16 py-2 transition-colors duration-200 border-b ${isScrolled ? 'bg-white shadow-sm fixed' : ''}`}>
+        <nav className={`flex justify-between items-center w-full z-50 px-7 xs:px-16 md:px-10 lg:px-16 py-2 transition-colors duration-200 border-b ${isScrolled ? 'bg-white shadow-sm fixed' : ''}`}>
             <div className='w-1/5'>
                 <Link href='/'>
                     <Image width={70} alt='Logo' priority src={logo} />
@@ -27,11 +27,14 @@ export default function Navbar() {
             </div>
             <div>
                 {/* TODO: when this button is clicked open a search modal */}
-                <Button variant="secondary" className='pl-2 pr-20 font-medium rounded'><MagnifyingGlassIcon className='text-primary mr-2' height={20} width={20} /> Search for a professional or describe your needs...</Button>
+                <Button variant="secondary" className='sm:pl-2 pr-12 sm:pr-20 font-medium rounded'><MagnifyingGlassIcon className='text-primary mr-2' height={20} width={20} />
+                    <span className='hidden md:block'>Search for a professional or describe your needs...</span>
+                    <span className='hidden xs:block md:hidden'>Search for a professional</span>
+                    <span className='xs:hidden'>Search...</span>
+                </Button>
             </div>
             <div className='w-1/5 flex justify-end'>
-                <Button variant="secondary" className='h-9 mr-2'>Login</Button>
-                <Button className='h-9'>Sign up</Button>
+                <Button className='mr-2'>Login</Button>
             </div>
         </nav>
     );
