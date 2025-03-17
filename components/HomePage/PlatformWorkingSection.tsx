@@ -1,5 +1,5 @@
-import { CalendarDays, Search, Video } from "lucide-react";
-import { ReactNode } from "react";
+import { CalendarDays, Search, Video } from 'lucide-react';
+import { ReactNode } from 'react';
 
 interface StepCardProps {
   title: string;
@@ -26,7 +26,7 @@ export default function PlatformWorkingSection() {
         <h3 className='font-heading xs:text-4xl text-3xl md:text-5xl font-bold text-center'>
           How Get<span className='text-primary'>A</span>Pro works
         </h3>
-        <h4 className='xs:text-xl text-lg text-gray-500 text-center mt-5'>
+        <h4 className='xs:text-xl text-lg text-gray-500 text-center mt-5 '>
           Get expert advice in three simple steps
         </h4>
       </div>

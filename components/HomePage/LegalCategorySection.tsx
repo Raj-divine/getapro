@@ -58,8 +58,8 @@ export default function LegalCategorySection() {
       </div>
       <div>
         <Carousel setApi={setApi}>
-          <CarouselContent className="h-80 px-2">
-            <CarouselItem className='basis-3/5 lg:basis-1/5 md:basis-2/5 '>
+          <CarouselContent className='h-80 px-2'>
+            <CarouselItem className='basis-3/5 lg:basis-1/4 md:basis-2/5'>
               <ProfessionalCard
                 name='Sarah Johnson'
                 profession='Corporate Lawyer'
@@ -68,7 +68,7 @@ export default function LegalCategorySection() {
                 price={1000}
               />
             </CarouselItem>
-            <CarouselItem className='basis-3/5 lg:basis-1/5 md:basis-2/5 '>
+            <CarouselItem className='basis-3/5 lg:basis-1/4 md:basis-2/5 '>
               <ProfessionalCard
                 name='Sarah Johnson'
                 profession='Corporate Lawyer'
@@ -77,7 +77,7 @@ export default function LegalCategorySection() {
                 price={1000}
               />
             </CarouselItem>
-            <CarouselItem className='basis-3/5  lg:basis-1/5 md:basis-2/5  '>
+            <CarouselItem className='basis-3/5  lg:basis-1/4 md:basis-2/5  '>
               <ProfessionalCard
                 name='Sarah Johnson'
                 profession='Corporate Lawyer'
@@ -86,7 +86,7 @@ export default function LegalCategorySection() {
                 price={1000}
               />
             </CarouselItem>
-            <CarouselItem className='basis-3/5 lg:basis-1/5 md:basis-2/5 '>
+            <CarouselItem className='basis-3/5 lg:basis-1/4 md:basis-2/5 '>
               <ProfessionalCard
                 name='Sarah Johnson'
                 profession='Corporate Lawyer'
@@ -95,7 +95,7 @@ export default function LegalCategorySection() {
                 price={1000}
               />
             </CarouselItem>
-            <CarouselItem className='basis-3/5 lg:basis-1/5 md:basis-2/5'>
+            <CarouselItem className='basis-3/5 lg:basis-1/4 md:basis-2/5'>
               <ProfessionalCard
                 name='Sarah Johnson'
                 profession='Corporate Lawyer'
@@ -104,7 +104,7 @@ export default function LegalCategorySection() {
                 price={1000}
               />
             </CarouselItem>
-            <CarouselItem className='basis-3/5 lg:basis-1/5 md:basis-2/5'>
+            <CarouselItem className='basis-3/5 lg:basis-1/4 md:basis-2/5'>
               <ProfessionalCard
                 name='Sarah Johnson'
                 profession='Corporate Lawyer'
@@ -113,7 +113,7 @@ export default function LegalCategorySection() {
                 price={1000}
               />
             </CarouselItem>
-            <CarouselItem className='basis-3/5 lg:basis-1/5 md:basis-2/5'>
+            <CarouselItem className='basis-3/5 lg:basis-1/4 md:basis-2/5'>
               <ProfessionalCard
                 name='Sarah Johnson'
                 profession='Corporate Lawyer'
@@ -122,7 +122,7 @@ export default function LegalCategorySection() {
                 price={1000}
               />
             </CarouselItem>
-            <CarouselItem className='basis-3/5 pr-2 lg:basis-1/5 md:basis-2/5 '>
+            <CarouselItem className='basis-3/5 pr-2 lg:basis-1/4 md:basis-2/5 '>
               <ProfessionalCard
                 name='Sarah Johnson'
                 profession='Corporate Lawyer'
