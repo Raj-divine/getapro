@@ -1,7 +1,7 @@
-import { Button } from '@/components/ui/button';
-import { ArrowRightIcon } from '@radix-ui/react-icons';
+import OnBoardingButtons from '../OnBoardingButtons';
 
 export default function HeroSection() {
+
   return (
     <section className='flex justify-center pt-5 xs:px-2 md:px-0'>
       <div className='flex flex-col items-center w-full text-center lg:px-10'>
@@ -17,14 +17,7 @@ export default function HeroSection() {
             connections.
           </h2>
         </div>
-        <div className='flex mt-8'>
-          <Button variant='primary' className='max-sm:mr-3 max-sm:h-9 sm:mr-2'>
-            Find a Professional <ArrowRightIcon className='ml-1 ' />
-          </Button>
-          <Button variant='secondary' className='max-sm:h-9'>
-            Join as Professional
-          </Button>
-        </div>
+        <OnBoardingButtons />
       </div>
     </section>
   );
