@@ -55,7 +55,7 @@ export default function FAQCardSection() {
     return <section className="px-16 py-16 flex flex-col items-center">
         <div className="text-center max-w-6xl">
             <h2 className="font-heading text-5xl font-bold">Why choose <span className="text-primary">GetAPro</span> for your professional practice?</h2>
-            <p className="text-xl text-gray-500">Join thousands of legal and financial professionals who are growing their practice and increasing their income with GetAPro.</p>
+            <p className="text-xl text-gray-500 mt-5">Join thousands of legal and financial professionals who are growing their practice and increasing their income with GetAPro.</p>
         </div>
         <div className="flex items-center justify-center gap-5 flex-wrap mt-10 max-w-6xl">
             {FAQCardData.map((card, index) => <FAQCard key={index} title={card.title} description={card.description}>{card.icon}</FAQCard>)}
