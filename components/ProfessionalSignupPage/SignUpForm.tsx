@@ -5,29 +5,17 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { Button } from '../ui/button';
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '../ui/card';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '../ui/form';
-import { Input } from '../ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../ui/select';
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "../ui/form";
+import { Input } from "../ui/input";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 
+/*
 const professionalCategories = [
   {
     value: 'lawyers',
@@ -54,42 +42,30 @@ const professionalCategories = [
     label: 'Other',
   },
 ];
+*/
 
-const formSchema = z
-  .object({
-    firstName: z.string().min(2, 'First name must be at least 2 characters'),
-    lastName: z.string().min(2, 'Last name must be at least 2 characters'),
-    email: z.string().email('Please enter a valid email address'),
-    category: z.string().min(1, 'Please select a category'),
-    otherCategory: z
-      .string()
-      .min(2, 'Category must be at least 2 characters')
-      .optional(),
-  })
-  .refine(
-    (data) => {
-      if (data.category === 'other') {
-        return !!data.otherCategory;
-      }
-      return true;
-    },
-    {
-      message: 'Please specify your professional category',
-      path: ['otherCategory'],
-    },
-  );
+const formSchema = z.object({
+    firstName: z.string().min(2, "First name must be at least 2 characters"),
+    lastName: z.string().min(2, "Last name must be at least 2 characters"),
+    email: z.string().email("Please enter a valid email address"),
+    password: z.string().min(6, "Password must be at least 6 characters"),
+    confirmPassword: z.string().min(6, "Password must be at least 6 characters"),
+}).refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords must match",
+    path: ["confirmPassword"],
+});
 
 export default function SignUpForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      category: '',
-      otherCategory: '',
-    },
-  });
+    const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+        },
+    });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     // TODO: Handle form submission
@@ -158,53 +134,32 @@ export default function SignUpForm() {
               )}
             />
 
-            <FormField
-              control={form.control}
-              name='category'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className='text-foreground'>
-                    Professional Category
-                  </FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder='Select your profession' />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {professionalCategories.map((item) => (
-                        <SelectItem key={item.value} value={item.value}>
-                          {item.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage className='font-normal' />
-                </FormItem>
-              )}
-            />
-
-            {form.watch('category') === 'other' && (
-              <FormField
-                control={form.control}
-                name='otherCategory'
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className='text-foreground'>
-                      Please enter your professional category
-                    </FormLabel>
-                    <FormControl>
-                      <Input placeholder='Enter your category' {...field} />
-                    </FormControl>
-                    <FormMessage className='font-normal' />
-                  </FormItem>
-                )}
-              />
-            )}
+                        <FormField
+                            control={form.control}
+                            name="password"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel className="text-foreground">Password</FormLabel>
+                                    <FormControl>
+                                        <Input type="password" placeholder="Enter your password" {...field} />
+                                    </FormControl>
+                                    <FormMessage className="font-normal" />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="confirmPassword"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel className="text-foreground">Confirm Password</FormLabel>
+                                    <FormControl>
+                                        <Input type="password" placeholder="Confirm your password" {...field} />
+                                    </FormControl>
+                                    <FormMessage className="font-normal" />
+                                </FormItem>
+                            )}
+                        />
 
             <div className='relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border'>
               <span className='relative z-10 bg-background px-2 text-muted-foreground'>
