@@ -214,10 +214,10 @@ export default function SignUpForm() {
 
             <div className='w-full flex justify-between gap-3 max-xs:hidden '>
               <Button
-                className='flex items-center w-1/2 md:px-0 '
+                className='flex items-center w-1/2 md:px-0'
                 variant='outline'
               >
-                <div className='h-full flex items-center   '>
+                <div className='h-full flex items-center'>
                   <svg
                     className='mr-2'
                     xmlns='http://www.w3.org/2000/svg'
@@ -248,10 +248,10 @@ export default function SignUpForm() {
                 </div>
               </Button>
               <Button
-                className='flex items-center w-1/2 md:px-0 '
+                className='flex items-center w-1/2 md:px-0'
                 variant='outline'
               >
-                <div className='h-full flex items-center '>
+                <div className='h-full flex items-center'>
                   <svg
                     className='mr-2'
                     xmlns='http://www.w3.org/2000/svg'
