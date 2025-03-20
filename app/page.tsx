@@ -3,10 +3,13 @@ import CategorySection from '@/components/HomePage/CategorySection';
 import HeroSection from '@/components/HomePage/HeroSection';
 import LegalCategorySection from '@/components/HomePage/LegalCategorySection';
 import PlatformWorkingSection from '@/components/HomePage/PlatformWorkingSection';
+import Footer from '@/components/layout/Footer';
+import Navbar from '@/components/layout/Navbar';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
+      <Navbar />
       <main>
         <HeroSection />
         <LegalCategorySection />
@@ -14,6 +17,7 @@ export default function Home() {
         <CategorySection />
         <CallToActionSection />
       </main>
+      <Footer />
     </>
   );
 }
