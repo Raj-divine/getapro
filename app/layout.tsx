@@ -1,7 +1,5 @@
 import { Toaster } from 'sonner';
 import './globals.css';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -21,9 +19,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className='font-default'>
-        <Navbar />
         {children}
-        <Footer />
         <Toaster richColors />
       </body>
     </html>
