@@ -9,8 +9,23 @@ import {
 import ProfessionalCard from '../ProfessionalCard';
 import { useEffect, useState } from 'react';
 import { ArrowRightIcon } from 'lucide-react';
+import { Database } from '@/supabase/types/database.types';
 
-export default function LegalCategorySection() {
+interface ProfessionalData {
+  hourly_rate: number;
+  specialities: string[];
+  category: Database['public']['Enums']['Professional Categories'];
+  professional_id: string;
+  rating: number;
+  rating_count: number;
+  profile_picture: string | null;
+  public_user_names: {
+    first_name: string | null;
+    last_name: string | null;
+  }
+};
+
+export default function LegalCategorySection({ data }: { data: ProfessionalData[] }) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -59,94 +74,21 @@ export default function LegalCategorySection() {
       <div>
         <Carousel setApi={setApi}>
           <CarouselContent className='px-2'>
-            <CarouselItem className='basis-3/5 xl:basis-1/5 lg:basis-1/4 md:basis-2/5'>
-              <ProfessionalCard
-                name='Sarah Johnson'
-                profession='Corporate Lawyer'
-                specialties={['Contracts', 'Tax', 'Litigation']}
-                image='https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                price={1000}
-                rating={4.9}
-                numOfRating={24}
-              />
-            </CarouselItem>
-            <CarouselItem className='basis-3/5 xl:basis-1/5 lg:basis-1/4 md:basis-2/5'>
-              <ProfessionalCard
-                name='Sarah Johnson'
-                profession='Corporate Lawyer'
-                specialties={['Contracts', 'Tax', 'Litigation']}
-                image='https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                price={1000}
-                rating={4.9}
-                numOfRating={24}
-              />
-            </CarouselItem>
-            <CarouselItem className='basis-3/5 xl:basis-1/5 lg:basis-1/4 md:basis-2/5'>
-              <ProfessionalCard
-                name='Sarah Johnson'
-                profession='Corporate Lawyer'
-                specialties={['Contracts', 'Tax', 'Litigation']}
-                image='https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                price={1000}
-                rating={4.9}
-                numOfRating={24}
-              />
-            </CarouselItem>
-            <CarouselItem className='basis-3/5 xl:basis-1/5 lg:basis-1/4 md:basis-2/5'>
-              <ProfessionalCard
-                name='Sarah Johnson'
-                profession='Corporate Lawyer'
-                specialties={['Contracts', 'Tax', 'Litigation']}
-                image='https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                price={1000}
-                rating={4.9}
-                numOfRating={24}
-              />
-            </CarouselItem>
-            <CarouselItem className='basis-3/5 xl:basis-1/5 lg:basis-1/4 md:basis-2/5'>
-              <ProfessionalCard
-                name='Sarah Johnson'
-                profession='Corporate Lawyer'
-                specialties={['Contracts', 'Tax', 'Litigation']}
-                image='https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                price={1000}
-                rating={4.9}
-                numOfRating={24}
-              />
-            </CarouselItem>
-            <CarouselItem className='basis-3/5 xl:basis-1/5 lg:basis-1/4 md:basis-2/5'>
-              <ProfessionalCard
-                name='Sarah Johnson'
-                profession='Corporate Lawyer'
-                specialties={['Contracts', 'Tax', 'Litigation']}
-                image='https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                price={1000}
-                rating={4.9}
-                numOfRating={24}
-              />
-            </CarouselItem>
-            <CarouselItem className='basis-3/5 xl:basis-1/5 lg:basis-1/4 md:basis-2/5'>
-              <ProfessionalCard
-                name='Sarah Johnson'
-                profession='Corporate Lawyer'
-                specialties={['Contracts', 'Tax', 'Litigation']}
-                image='https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                price={1000}
-                rating={4.9}
-                numOfRating={24}
-              />
-            </CarouselItem>
-            <CarouselItem className='basis-3/5 xl:basis-1/5 lg:basis-1/4 md:basis-2/5'>
-              <ProfessionalCard
-                name='Sarah Johnson'
-                profession='Corporate Lawyer'
-                specialties={['Contracts', 'Tax', 'Litigation']}
-                image='https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                price={1000}
-                rating={4.9}
-                numOfRating={24}
-              />
-            </CarouselItem>
+
+            {data.map(professional => (
+              <CarouselItem key={professional.professional_id} className='basis-3/5 xl:basis-1/5 lg:basis-1/4 md:basis-2/5'>
+                <ProfessionalCard
+                  name={`${professional.public_user_names.first_name} ${professional.public_user_names.last_name || ''}`}
+                  category={professional.category}
+                  specialties={professional.specialities}
+                  image={professional.profile_picture || ''}
+                  price={professional.hourly_rate}
+                  rating={professional.rating}
+                  numOfRating={professional.rating_count}
+                  professionalId={professional.professional_id}
+                />
+              </CarouselItem>
+            ))}
 
           </CarouselContent>
         </Carousel>

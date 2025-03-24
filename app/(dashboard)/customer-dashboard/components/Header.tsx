@@ -74,7 +74,7 @@ export default function Header() {
                             </DropdownMenuGroup>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem>
-                                <button className="text-red-500 hover:bg-red-500 hover:text-white flex items-center">
+                                <button className="text-red-500 flex items-center">
                                     <LogOut className="mr-2 h-4 w-4" />
                                     <span>Log out</span>
                                 </button>
