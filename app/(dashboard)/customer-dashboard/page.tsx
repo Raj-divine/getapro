@@ -16,6 +16,7 @@ export default async function CustomerDashboardPage() {
         rating,
         rating_count,
         professional_id,
+        languages,
         profile_picture,
         public_user_names(first_name, last_name)
     `).limit(10);
