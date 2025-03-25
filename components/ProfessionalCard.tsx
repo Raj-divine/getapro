@@ -35,7 +35,7 @@ export default function ProfessionalCard({ name, category, specialties, image, p
                 </div>
             </div>
             <Button variant="primary" className="w-full h-9" asChild>
-                <Link href={`/professional/book-a-session/${professionalId}`}>
+                <Link href={`/professional/book-session/${professionalId}`}>
                     Book a Session
                 </Link>
             </Button>

@@ -5,6 +5,7 @@ import logo from '../../public/assets/svgs/logo.svg';
 import { useEffect, useState } from 'react';
 import { Button } from '../ui/button';
 import SearchBar from '../SearchBar';
+import { LoginForm } from '../LoginForm';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -31,7 +32,10 @@ export default function Navbar() {
                     <SearchBar />
                 </div>
                 <div className='w-1/5 flex justify-end'>
-                    <Button className='mr-2'>Login</Button>
+
+                    <LoginForm>
+                        <Button className='mr-2'>Login</Button>
+                    </LoginForm>
                 </div>
             </nav>
             {isScrolled && <div className="h-[81px]" />}

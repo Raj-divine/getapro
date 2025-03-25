@@ -3,7 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { Button } from '../../../components/ui/button';
+import { Button } from './ui/button';
 import {
   Form,
   FormControl,
@@ -11,15 +11,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '../../../components/ui/form';
-import { Input } from '../../../components/ui/input';
+} from './ui/form';
+import { Input } from './ui/input';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '../../../components/ui/card';
+} from './ui/card';
 
 /*
 const professionalCategories = [
@@ -65,7 +65,7 @@ const formSchema = z
     path: ['confirmPassword'],
   });
 
-export default function SignUpForm() {
+export default function SignUpForm({ type }: { type: 'customer' | 'professional' }) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -86,7 +86,7 @@ export default function SignUpForm() {
     <Card className='shadow-lg w-full max-w-lg'>
       <CardHeader>
         <CardTitle className='font-heading'>
-          Sign up as a Professional
+          Sign up as a {type === 'professional' ? 'Professional' : 'Customer'}
         </CardTitle>
         <CardDescription>
           Fill out the form below to start your journey with GetAPro
@@ -219,7 +219,7 @@ export default function SignUpForm() {
                       d='M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z'
                     ></path>
                   </svg>
-                  Login with Google
+                  Signup with Google
                 </div>
               </Button>
               <Button
@@ -245,7 +245,7 @@ export default function SignUpForm() {
                       d='M12 19H17V36H12zM14.485 17h-.028C12.965 17 12 15.888 12 14.499 12 13.08 12.995 12 14.514 12c1.521 0 2.458 1.08 2.486 2.499C17 15.887 16.035 17 14.485 17zM36 36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99C24.957 25.543 25 26.511 25 27v9h-5V19h5v2.616C25.721 20.5 26.85 19 29.738 19c3.578 0 6.261 2.25 6.261 7.274L36 36 36 36z'
                     ></path>
                   </svg>
-                  Login with LinkedIn
+                  Signup with LinkedIn
                 </div>
               </Button>
             </div>

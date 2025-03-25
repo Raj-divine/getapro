@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 export default function OnBoardingButtons() {

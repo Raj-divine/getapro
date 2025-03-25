@@ -18,8 +18,8 @@ export default async function HomePage() {
     category,
     rating,
     rating_count,
-    professional_id,
     profile_picture,
+    professional_id,
     public_user_names(first_name, last_name)
   `)
     .eq('category', 'LAWYER')
