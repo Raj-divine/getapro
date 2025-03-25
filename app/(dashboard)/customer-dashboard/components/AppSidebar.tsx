@@ -23,10 +23,12 @@ import {
   SidebarRail,
 } from '@/components/ui/sidebar';
 import { Slider } from '@/components/ui/slider';
+import getFilters from '@/utils/getFilters';
 import { BarChart3, Calendar, FileText, Scale, Users, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 // Categories with icons
 const categories = [
@@ -38,7 +40,7 @@ const categories = [
 
 // Additional filters
 const ratingFilters = ['Any', '4.5+', '4.0+', '3.5+'];
-const languageFilters = ['Any', 'English', 'Hindi'];
+const languageFilters = ['Any', 'English', 'Hindi', 'Kannada', 'Tamil', 'Telugu', 'Punjabi', 'Marathi', 'Gujarati', 'Bengali', 'Assamese', 'Odia', 'Urdu', 'Sanskrit', 'Manipuri', 'Maithili', 'Bodo', 'Dogri', 'Konkani', 'Nepali', 'Santhali', 'Sindhi'];
 const sortOptions = [
   { value: 'rating-desc', label: 'Highest Rated' },
   { value: 'price-asc', label: 'Price: Low to High' },
@@ -47,14 +49,44 @@ const sortOptions = [
 ];
 
 export default function AppSidebar() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [priceRange, setPriceRange] = useState([0, 10000]);
-  const [availabilityFilter, setAvailabilityFilter] = useState<string | null>(
-    null,
-  );
-  const [ratingFilter, setRatingFilter] = useState('Any');
-  const [languageFilter, setLanguageFilter] = useState('Any');
-  const [sortOption, setSortOption] = useState('rating-desc');
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const { minPrice, maxPrice, rating, language, sort, availability, category } = getFilters(searchParams);
+
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(category || null);
+  const [priceRange, setPriceRange] = useState([Number(minPrice) || 0, Number(maxPrice) || 10000]);
+  const [availabilityFilter, setAvailabilityFilter] = useState<string | null>(availability || null);
+  const [ratingFilter, setRatingFilter] = useState(rating || 'Any');
+  const [languageFilter, setLanguageFilter] = useState(language || 'Any');
+  const [sortOption, setSortOption] = useState(sort || 'rating-desc');
+
+  const constructFilterParams = () => {
+    const params = new URLSearchParams();
+
+    if (selectedCategory) {
+      params.set('category', selectedCategory);
+    }
+
+    params.set('minPrice', priceRange[0].toString());
+    params.set('maxPrice', priceRange[1].toString());
+
+    if (availabilityFilter) {
+      params.set('availability', availabilityFilter);
+    }
+
+    params.set('rating', ratingFilter);
+
+    if (languageFilter !== 'Any') {
+      params.set('language', languageFilter);
+    }
+    params.set('sort', sortOption);
+    return params;
+  };
+
+  useEffect(() => {
+    const params = constructFilterParams();
+    router.push(`?${params.toString()}`);
+  }, [selectedCategory, priceRange, availabilityFilter, ratingFilter, languageFilter, sortOption]);
 
   return (
     <Sidebar>
