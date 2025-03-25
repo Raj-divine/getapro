@@ -67,3 +67,11 @@ brew install postgresql
 ```sh
 rm data.sql
 ```
+
+## Generate typescript types for supabase
+
+1. Run the following command to generate the typescript types for supabase
+
+```sh
+supabase gen types typescript --local > supabase/types/database.types.ts
+```

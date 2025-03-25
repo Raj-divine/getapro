@@ -1,35 +1,30 @@
 'use client';
-import { useEffect, useState } from 'react';
-import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from '@/components/ui/carousel';
-import { CaretLeftIcon, CaretRightIcon } from '@radix-ui/react-icons';
-import ProfessionalCard from '@/components/ProfessionalCard';
+import { useEffect, useState } from "react";
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { CaretLeftIcon, CaretRightIcon } from "@radix-ui/react-icons";
+import ProfessionalCard from "@/components/ProfessionalCard";
+import { Database } from "@/supabase/types/database.types";
 
-interface professionalData {
-  professional_id: number;
-  name: string;
-  specialties: string[];
-  image: string;
-  price: number;
+interface ProfessionalData {
+  hourly_rate: number;
+  specialities: string[];
+  category: Database['public']['Enums']['Professional Categories'];
+  professional_id: string;
   rating: number;
-  numOfRating: number;
-}
+  rating_count: number;
+  profile_picture: string | null;
+  public_user_names: {
+    first_name: string | null;
+    last_name: string | null;
+  }
+};
 
 interface ProfessionalSectionProps {
   title: string;
-  data: professionalData[];
-  profession: string;
+  data: ProfessionalData[];
 }
 
-export default function ProfessionalSection({
-  title,
-  data,
-  profession,
-}: ProfessionalSectionProps) {
+export default function ProfessionalSection({ title, data }: ProfessionalSectionProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -77,22 +72,21 @@ export default function ProfessionalSection({
       <div>
         <Carousel setApi={setApi}>
           <CarouselContent className='px-2'>
-            {data.map((data) => (
-              <CarouselItem
-                key={data.professional_id}
-                className='basis-3/4 xs:basis-2/3 sm:basis-1/2 xl:basis-1/4 lg:basis-2/5 md:basis-1/2'
-              >
+            {data.map(professional => (
+              <CarouselItem key={professional.professional_id} className='basis-3/5 xl:basis-1/5 lg:basis-1/4 md:basis-2/5'>
                 <ProfessionalCard
-                  name={data.name}
-                  profession={profession}
-                  specialties={data.specialties}
-                  image={data.image}
-                  price={data.price}
-                  rating={data.rating}
-                  numOfRating={data.numOfRating}
+                  name={`${professional.public_user_names.first_name} ${professional.public_user_names.last_name || ''}`}
+                  category={professional.category}
+                  specialties={professional.specialities}
+                  image={professional.profile_picture || ''}
+                  price={professional.hourly_rate}
+                  rating={professional.rating}
+                  numOfRating={professional.rating_count}
+                  professionalId={professional.professional_id}
                 />
               </CarouselItem>
             ))}
+
           </CarouselContent>
         </Carousel>
       </div>

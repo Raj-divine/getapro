@@ -1,4 +1,4 @@
-import OnBoardingButtons from "../OnBoardingButtons";
+import OnBoardingButtons from "./OnBoardingButtons";
 
 export default function CallToActionSection() {
   return (

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import SignUpForm from './SignUpForm';
+import SignUpForm from '../../../components/SignUpForm';
 
 export default function FormSection() {
   return (
@@ -36,7 +36,7 @@ export default function FormSection() {
           </div>
         </div>
         <div className='w-full lg:w-1/2 max-md:justify-center flex md:justify-end z-20 pt-10'>
-          <SignUpForm />
+          <SignUpForm type='professional' />
         </div>
         <div
           className='rounded-full w-60 aspect-square absolute bg-violet-400 z-10 opacity-20 top-10 -left-10 '
