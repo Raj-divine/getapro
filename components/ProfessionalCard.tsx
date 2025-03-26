@@ -9,7 +9,7 @@ export default function ProfessionalCard({ name, category, specialties, image, p
     return <div className="h-full bg-white border cursor-default border-violet-200 rounded">
         <div className="relative w-full aspect-square">
             <Badge className="font-semibold absolute top-3 right-3 z-50">₹{price}/hr</Badge>
-            <Image src={image} loading="lazy" className="object-cover" fill alt="Pro" />
+            <Image src={image} loading="lazy" className="object-cover" fill alt="Profile Picture" />
         </div>
         <div className="p-3 flex flex-col justify-between ">
             <div className="flex justify-between items-start ">
