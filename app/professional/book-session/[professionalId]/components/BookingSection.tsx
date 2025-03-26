@@ -2,11 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverTrigger } from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import MultiSelectButtons from "@/components/utils/MultiSelectButtons";
 import processSelectedTimes from "@/utils/processSelectedTimes";
+import { PopoverContent } from "@radix-ui/react-popover";
 import { formatDate } from "date-fns";
+import { Info } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function BookingSection() {
@@ -73,12 +76,26 @@ export default function BookingSection() {
         </div>
 
         <div className="mt-2 flex flex-col">
-            {sessions.length <= 4 ? <p className="mb-3 text-ellipsis">
-                {sessions.length === 1 && <p>Your session will start at <strong>{formatDate(sessions[0].startTime, 'cccc, do MMMM, yyyy, h:mm aaa')}</strong> and last for <strong>{sessions[0].duration}</strong> minutes.</p>}
-                {sessions.length > 1 && <p>You have chosen <strong>{sessions.length}</strong> session starting at <strong>{sessions.map((session, index) => `${formatDate(session.startTime, 'h:mm aaa')}${sessions.length === index + 1 ? '' : ', '}`)}</strong> lasting for <strong>{sessions.map((session, index) => `${session.duration}${sessions.length === index + 1 ? '' : ', '}`)}</strong> minutes respectively.</p>}
+            {sessions.length < 4 ? <p className="mb-3 text-ellipsis">
+                {sessions.length === 1 && <span>Your session will start at {formatDate(sessions[0].startTime, 'cccc, do MMMM, yyyy, h:mm aaa')} and last for {sessions[0].duration} minutes.</span>}
+                {sessions.length > 1 && <span>You have chosen {sessions.length} session starting at {sessions.map((session, index) => `${formatDate(session.startTime, 'h:mm aaa')}${sessions.length === index + 1 ? '' : ', '}`)} lasting for {sessions.map((session, index) => `${session.duration}${sessions.length === index + 1 ? '' : ', '}`)} minutes respectively.</span>}
             </p>
                 :
-                <p>You have chosen <strong>{sessions.length}</strong> different sessions lasting <strong>{sessions.reduce((total, session) => total + session.duration, 0)}</strong> minutes combined.</p>
+                <div className="flex items-start">
+                    <p className="inline">You have chosen {sessions.length} different sessions lasting {sessions.reduce((total, session) => total + session.duration, 0)} minutes combined.</p>
+                    <div className="inline ml-2">
+                        <Popover>
+                            <PopoverTrigger asChild><button className="text-gray-500 mt-2"><Info size={15} /></button></PopoverTrigger>
+                            <PopoverContent>
+                                <div className="shadow bg-white rounded-lg p-4 w-80">
+                                    <div>You have chosen {sessions.length} session starting at {sessions.map((session, index) => `${formatDate(session.startTime, 'h:mm aaa')}${sessions.length === index + 1 ? '' : ', '}`)} lasting for {sessions.map((session, index) => `${session.duration}${sessions.length === index + 1 ? '' : ', '}`)} minutes respectively.</div>
+
+                                </div>
+                            </PopoverContent>
+                        </Popover>
+                    </div>
+
+                </div>
             }
             <Button>Book your session</Button>
         </div>

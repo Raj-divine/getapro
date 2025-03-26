@@ -5,9 +5,10 @@ import DetailsSection from "./components/DetailsSection";
 import ReviewSection from "./components/ReviewSection";
 import BookingSection from "./components/BookingSection";
 
-export default async function BookSessionPage({ params }: { params: { professionalId: string } }) {
+export default async function BookSessionPage({ params }: { params: Promise<{ professionalId: string }> }) {
+    const { professionalId } = await params;
     const supabase = await createClient();
-    const { data, error } = await supabase.from('professionals').select('*, public_user_names(first_name, last_name)').eq('professional_id', params.professionalId).single();
+    const { data, error } = await supabase.from('professionals').select('*, public_user_names(first_name, last_name)').eq('professional_id', professionalId).single();
     // TODO: Add error handling
     if (!data || error) {
         throw new Error('Failed to fetch professional');
