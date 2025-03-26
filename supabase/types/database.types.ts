@@ -60,6 +60,8 @@ export type Database = {
           bio: string | null
           category: Database["public"]["Enums"]["Professional Categories"]
           created_at: string
+          degree: string | null
+          experience: Database["public"]["Enums"]["Experience level"]
           hourly_rate: number
           id: number
           is_verified: boolean
@@ -68,6 +70,7 @@ export type Database = {
           profile_picture: string
           rating: number
           rating_count: number
+          school: string | null
           specialities: string[]
           updated_at: string
         }
@@ -75,6 +78,8 @@ export type Database = {
           bio?: string | null
           category: Database["public"]["Enums"]["Professional Categories"]
           created_at?: string
+          degree?: string | null
+          experience?: Database["public"]["Enums"]["Experience level"]
           hourly_rate: number
           id?: number
           is_verified?: boolean
@@ -83,6 +88,7 @@ export type Database = {
           profile_picture: string
           rating?: number
           rating_count?: number
+          school?: string | null
           specialities: string[]
           updated_at?: string
         }
@@ -90,6 +96,8 @@ export type Database = {
           bio?: string | null
           category?: Database["public"]["Enums"]["Professional Categories"]
           created_at?: string
+          degree?: string | null
+          experience?: Database["public"]["Enums"]["Experience level"]
           hourly_rate?: number
           id?: number
           is_verified?: boolean
@@ -98,6 +106,7 @@ export type Database = {
           profile_picture?: string
           rating?: number
           rating_count?: number
+          school?: string | null
           specialities?: string[]
           updated_at?: string
         }
@@ -179,6 +188,14 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
+      "Experience level":
+      | "< 1 Year"
+      | "1-3 Years"
+      | "3-7 Years"
+      | "7-10 Years"
+      | "10-15 Years"
+      | "15-20 Years"
+      | "20+ Years"
       Languages:
       | "ASSAMESE"
       | "BENGALI"
