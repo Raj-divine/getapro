@@ -148,7 +148,7 @@ export default function BookingSection() {
                                         </button>
                                     </PopoverTrigger>
                                     <PopoverContent>
-                                        <div className='shadow bg-white rounded-lg p-4 w-80'>
+                                        <div className='shadow-sm bg-white rounded-lg p-4 w-80'>
                                             <div>
                                                 You have chosen {sessions.length} session starting at{' '}
                                                 {sessions.map(

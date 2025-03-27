@@ -104,7 +104,7 @@ export default function BenefitSection() {
           </div>
           {/* Right side */}
           <div className='lg:flex-1 lg:h-full md:flex-row flex flex-col lg:flex lg:flex-col gap-5 md:pt-5 lg:pt-0 xl:pt-0'>
-            <div className="lg:w-full md:w-3/5 bg-gray-300 bg-[url('/assets/svgs/time-table.svg')] bg-[53%_109%] xs:bg-[55%_100%] sm:bg-[45%_111%] md:bg-[49%_100%] lg:bg-[50%_150%] xl:bg-[107%_70%]  bg-no-repeat lg:flex-1 max-md:flex-grow-0 max-md:pb-[10rem] rounded-xl p-6 mt-5 md:mt-0">
+            <div className="lg:w-full md:w-3/5 bg-gray-300 bg-[url('/assets/svgs/time-table.svg')] bg-[53%_109%] xs:bg-[55%_100%] sm:bg-[45%_111%] md:bg-[49%_100%] lg:bg-[50%_150%] xl:bg-[107%_70%]  bg-no-repeat lg:flex-1 max-md:grow-0 max-md:pb-[10rem] rounded-xl p-6 mt-5 md:mt-0">
               {/* top right */}
               <div className='text-primary'>
                 <Calendar size={30} strokeWidth={1.4} />
