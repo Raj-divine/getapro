@@ -23,6 +23,12 @@ export default function BookingSection() {
         { value: "9:00-9:15", label: "9:00AM - 9:15AM", booked: false },
         { value: "9:20-9:35", label: "9:20AM - 9:35AM", booked: false },
         { value: "9:40-9:55", label: "9:40AM - 9:55AM", booked: false },
+        { value: "10:00-10:15", label: "10:00AM - 10:55AM", booked: false },
+        { value: "10:20-10:35", label: "10:20AM - 10:35AM", booked: false },
+        { value: "10:40-10:55", label: "10:40AM - 9:55AM", booked: false },
+        { value: "11:00-11:15", label: "11:00AM - 11:15AM", booked: false },
+        { value: "11:20-11:35", label: "11:20AM - 11:35AM", booked: false },
+
         { value: "18:30-18:45", label: "6:30PM - 6:45PM", booked: false },
         { value: "18:50-19:05", label: "6:50PM - 7:05PM", booked: false },
         { value: "19:50-20:05", label: "7:50PM - 8:05PM", booked: false },
@@ -62,7 +68,7 @@ export default function BookingSection() {
             <div className="mt-5 flex flex-col justify-between">
                 <div>
                     <p className="text">Available slots for {formatDate(date || new Date(), 'cccc, do MMMM, yyyy')}</p>
-                    <p className="text-sm text-gray-500">You can choose multiple adjacent slots for a longer session. Maximum duration of a session can only be 2 hours.</p>
+                    <p className="text-sm text-gray-500">You can choose multiple adjacent slots for a longer session.</p>
                     <div className="mt-5">
                         <div className="font-heading  flex flex-wrap">
                             <ScrollArea className="h-40">
