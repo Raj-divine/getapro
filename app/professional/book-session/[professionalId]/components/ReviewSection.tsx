@@ -10,8 +10,8 @@ export default function ReviewSection() {
       <p className='text-xl font-medium'>Reviews</p>
       <ScrollArea className='h-[95%]'>
         <div className='mt-3'>
-          <div className='flex flex-col sm:flex-row gap-10'>
-            <div className='sm:w-1/2 bg-gray-300 rounded-lg flex flex-col items-center justify-center p-4 w-full'>
+          <div className='flex flex-col sm:flex-row md:flex-col lg:flex-row gap-10'>
+            <div className='lg:w-1/2 bg-gray-300 rounded-lg flex flex-col items-center justify-center p-4 w-full'>
               <p className='text-3xl font-heading font-bold'>4.5</p>
               <div className='flex gap-5 text-primary mt-2'>
                 <StarFilledIcon height={25} width={25} />
@@ -22,7 +22,7 @@ export default function ReviewSection() {
               </div>
               <p className='mt-2 text-gray-700'>46 Ratings</p>
             </div>
-            <div className='w-full sm:w-2/5 flex flex-col justify-between'>
+            <div className='w-full lg:w-2/5 flex flex-col justify-between'>
               <ReviewSummary />
             </div>
           </div>

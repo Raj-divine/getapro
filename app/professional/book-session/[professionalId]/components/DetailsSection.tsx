@@ -17,8 +17,8 @@ interface DetailsSectionProps {
 export default function DetailsSection({ data }: DetailsSectionProps) {
   return (
     <div className='w-full bg-white sm:h-1/2 rounded-lg p-4 flex flex-col gap-3'>
-      <div className='rounded-md border p-4 flex h-1/2 max-sm:hidden'>
-        <div className='relative h-full aspect-square '>
+      <div className='rounded-md border p-4 flex h-1/2 max-md:hidden'>
+        <div className='relative md:h-36 lg:h-full aspect-square'>
           <Image
             src={data.profile_picture}
             loading='lazy'
@@ -69,10 +69,10 @@ export default function DetailsSection({ data }: DetailsSectionProps) {
         </div>
       </div>
       {/* for mobile screens */}
-      <div className='sm:hidden'>
+      <div className='md:hidden'>
         <div className='rounded-md border p-4 flex flex-col'>
           <div className='flex'>
-            <div className='relative aspect-square h-20 xs:h-28 '>
+            <div className='relative aspect-square h-20 xs:h-28'>
               <Image
                 src={data.profile_picture}
                 loading='lazy'
@@ -96,7 +96,7 @@ export default function DetailsSection({ data }: DetailsSectionProps) {
                   </div>
                 </div>
 
-                <p className='text-gray-500 text-sm leading-normal'>
+                <p className='text-gray-500 text-sm leading-normal mt-1'>
                   {data.school}
                 </p>
                 <p className='text-gray-500 text-sm leading-normal'>
@@ -128,14 +128,14 @@ export default function DetailsSection({ data }: DetailsSectionProps) {
         </div>
       </div>
 
-      <div className='flex flex-col sm:flex-row gap-3 h-1/2'>
+      <div className='flex flex-col md:flex-row gap-3 h-1/2'>
         <div className='rounded-md border p-4 flex-1'>
           <p>Bio</p>
           <ScrollArea className='h-4/5'>
             <p className='mt-2 text-gray-500 text-sm'>{data.bio}</p>
           </ScrollArea>
         </div>
-        <div className='rounded-md border p-4 flex-1 h-full'>
+        <div className='rounded-md border p-4 flex-1 lg:h-full'>
           <div>
             <p>Specialities</p>
             <div>

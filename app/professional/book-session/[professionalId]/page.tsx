@@ -26,22 +26,37 @@ export default async function BookSessionPage({
     <>
       <Navbar />
       <main>
-        <div className='flex flex-col sm:flex sm:flex-row gap-5 px-5 sm:px-16 py-5 max-xs:h-full  h-[105vh]'>
-          <div className='sm:w-[70%] flex flex-col gap-5 w-full max-sm:hidden'>
+        <div className='flex flex-col lg:flex lg:flex-row gap-5 px-5 md:px-5 xl:px-16 py-5 lg:pb-9 lg:h-[105vh]'>
+          {/* for xl screens */}
+          <div className='lg:w-[70%] flex flex-col gap-5 w-full max-lg:hidden'>
             <DetailsSection data={data} />
             <ReviewSection />
           </div>
 
-          <div className='max-sm:hidden w-[30%]'>
+          <div className='max-lg:hidden w-[30%]'>
             <BookingSection />
           </div>
 
-          <div className='sm:w-[70%] flex flex-col gap-5 w-full sm:hidden'>
+          {/* for md screens */}
+          <div className='lg:w-[70%] flex flex-col gap-5 w-full max-md:hidden h-[68rem] lg:hidden'>
+            <DetailsSection data={data} />
+            <div className='flex gap-3'>
+              <div>
+                <BookingSection />
+              </div>
+              <div>
+                <ReviewSection />
+              </div>
+            </div>
+          </div>
+
+          {/* for mobile screens */}
+          <div className='md:w-[70%] flex flex-col gap-5 w-full md:hidden'>
             <DetailsSection data={data} />
             <BookingSection />
           </div>
 
-          <div className='sm:hidden'>
+          <div className='md:hidden'>
             <ReviewSection />
           </div>
         </div>
