@@ -5,6 +5,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverTrigger } from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
+import UserSignUpModal from "@/components/UserSignUpModal";
 import MultiSelectButtons from "@/components/utils/MultiSelectButtons";
 import processSelectedTimes from "@/utils/processSelectedTimes";
 import { PopoverContent } from "@radix-ui/react-popover";
@@ -97,7 +98,9 @@ export default function BookingSection() {
 
                 </div>
             }
-            <Button>Book your session</Button>
+            <UserSignUpModal>
+                <Button>Book your session</Button>
+            </UserSignUpModal>
         </div>
     </div>;
 }

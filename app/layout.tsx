@@ -1,5 +1,6 @@
 import { Toaster } from 'sonner';
 import './globals.css';
+import { AuthProvider } from './context/authContext';
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -19,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className='font-default'>
-        {children}
-        <Toaster richColors />
+        <AuthProvider>
+          {children}
+          <Toaster richColors />
+        </AuthProvider>
       </body>
     </html>
   );
