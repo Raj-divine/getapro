@@ -23,7 +23,7 @@ export default function DetailsSection({ data }: DetailsSectionProps) {
             <div className="ml-3 w-full">
                 <div className="flex justify-between w-full">
                     <div className="flex gap-10">
-                        <Info title="Full Name" info={data.public_user_names.first_name + ' ' + data.public_user_names.last_name} />
+                        <Info title="Full Name" info={data.public_user_names.first_name + ' ' + (data.public_user_names.last_name || '')} />
                         <Info title="Category" info={data.category.charAt(0).toUpperCase() + data.category.slice(1).toLowerCase()} />
                         <Info title="Experience" info={data.experience} />
                     </div>
