@@ -9,7 +9,7 @@ import {
 
 export default function BenefitSection() {
   return (
-    <section className='px-5 py-16 sm:px-10 md:px-10 lg:px-16 md:py-16 border-t'>
+    <section className='px-5 py-16 sm:px-10 md:px-10 lg:px-16 md:py-16 border-t md:h-[87rem] lg:h-full '>
       <div className='text-center flex flex-col items-center'>
         <h2 className='font-heading text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold'>
           What to expect as a <span className='text-primary'>GetAPro</span>
