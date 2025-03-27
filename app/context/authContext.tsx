@@ -29,20 +29,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const checkUser = async () => {
         try {
             setIsLoading(true);
-            // If we have a session, get the user
-            const { data: { user }, error: userError } = await supabase.auth.getUser();
+            // First try to get the session
+            const { data: { session }, error: sessionError } = await supabase.auth.getSession();
 
-            if (userError) {
-                console.error('User error:', userError.message);
-                toast.error('Something went wrong, please try again later or contact support. user error code: ' + userError.code);
+            if (sessionError) {
+                console.error('Session error:', sessionError.message);
                 setUser(null);
                 return;
             }
 
-            setUser(user);
+            // If we have a session, get the user
+            if (session) {
+                const { data: { user }, error: userError } = await supabase.auth.getUser();
+
+                if (userError) {
+                    console.error('User error:', userError.message);
+                    toast.error('Something went wrong, please try again later or contact support. user error code: ' + userError.code);
+                    setUser(null);
+                    return;
+                }
+
+                setUser(user);
+            } else {
+                setUser(null);
+            }
         } catch (error) {
             console.error('Unexpected error:', error);
             toast.error('Something went wrong, please try again later or contact support');
+
             setUser(null);
         } finally {
             setIsLoading(false);
