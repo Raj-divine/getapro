@@ -26,7 +26,7 @@ export default async function BookSessionPage({
     <>
       <Navbar />
       <main>
-        <div className='flex flex-col sm:flex sm:flex-row gap-5 px-5 sm:px-16 py-5 h-[105vh]'>
+        <div className='flex flex-col sm:flex sm:flex-row gap-5 px-5 sm:px-16 py-5 max-xs:h-full  h-[105vh]'>
           <div className='sm:w-[70%] flex flex-col gap-5 w-full max-sm:hidden'>
             <DetailsSection data={data} />
             <ReviewSection />
