@@ -6,9 +6,11 @@ import { useEffect, useState } from 'react';
 import { Button } from '../ui/button';
 import SearchBar from '../SearchBar';
 import { LoginForm } from '../LoginForm';
+import { useAuth } from '@/hooks/use-auth';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const { user, isLoading } = useAuth();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,10 +34,11 @@ export default function Navbar() {
                     <SearchBar />
                 </div>
                 <div className='w-1/5 flex justify-end'>
-
-                    <LoginForm>
-                        <Button className='mr-2'>Login</Button>
-                    </LoginForm>
+                    {!isLoading && !user && (
+                        <LoginForm>
+                            <Button className='mr-2'>Login</Button>
+                        </LoginForm>
+                    )}
                 </div>
             </nav>
             {isScrolled && <div className="h-[81px]" />}

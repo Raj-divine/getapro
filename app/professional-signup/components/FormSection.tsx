@@ -1,5 +1,12 @@
 import Image from 'next/image';
-import SignUpForm from '../../../components/SignUpForm';
+import SignUpForm from '@/components/SignUpForm';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 
 export default function FormSection() {
   return (
@@ -36,7 +43,19 @@ export default function FormSection() {
           </div>
         </div>
         <div className='w-full lg:w-1/2 max-md:justify-center flex md:justify-end z-20 pt-10'>
-          <SignUpForm type='professional' />
+          <Card className='shadow-lg w-full max-w-lg'>
+            <CardHeader>
+              <CardTitle className='font-heading'>
+                Sign up as a professional
+              </CardTitle>
+              <CardDescription>
+                Fill out the form below to start your journey with GetAPro
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <SignUpForm type='professional' />
+            </CardContent>
+          </Card>
         </div>
         <div
           className='rounded-full w-60 aspect-square absolute bg-violet-400 z-10 opacity-20 top-10 -left-10 '

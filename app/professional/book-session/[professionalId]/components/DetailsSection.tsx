@@ -35,7 +35,7 @@ export default function DetailsSection({ data }: DetailsSectionProps) {
                 info={
                   data.public_user_names.first_name +
                   ' ' +
-                  data.public_user_names.last_name
+                  (data.public_user_names.last_name || '')
                 }
               />
               <Info
