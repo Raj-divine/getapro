@@ -18,14 +18,14 @@ export default function DetailsSection({ data }: DetailsSectionProps) {
   return (
     <div className='w-full bg-white sm:h-1/2 rounded-lg p-4 flex flex-col gap-3'>
       <div className='rounded-md border p-4 flex h-1/2 max-md:hidden'>
-        <div className='relative md:h-36 lg:h-full aspect-square'>
+        <div className='relative md:h-36 xl:h-full aspect-square'>
           <Image
             src={data.profile_picture}
             loading='lazy'
             className='object-cover'
             alt='Profile picture'
             fill
-          />
+          />`
         </div>
         <div className='ml-3 w-full'>
           <div className='flex justify-between w-full'>

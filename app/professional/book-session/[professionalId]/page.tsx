@@ -26,7 +26,7 @@ export default async function BookSessionPage({
     <>
       <Navbar />
       <main>
-        <div className='flex flex-col lg:flex lg:flex-row gap-5 px-5 md:px-5 xl:px-16 py-5 lg:pb-9 lg:h-[105vh]'>
+        <div className='flex flex-col lg:flex lg:flex-row gap-5 px-5 md:px-5 xl:px-16 py-5 lg:min-h-[900px]'>
           {/* for xl screens */}
           <div className='lg:w-[70%] flex flex-col gap-5 w-full max-lg:hidden'>
             <DetailsSection data={data} />
@@ -38,7 +38,7 @@ export default async function BookSessionPage({
           </div>
 
           {/* for md screens */}
-          <div className='lg:w-[70%] flex flex-col gap-5 w-full max-md:hidden h-[68rem] lg:hidden'>
+          <div className='lg:w-[70%] flex flex-col gap-5 w-full max-md:hidden lg:hidden'>
             <DetailsSection data={data} />
             <div className='flex gap-3'>
               <div>
