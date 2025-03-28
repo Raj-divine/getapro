@@ -6,7 +6,7 @@ function ReviewBar() {
       <span className='w-8 text-sm'>5.0</span>
       <Progress value={60} className='w-[60%] h-2' />
       <p className='text-sm text-right ml-2'>
-        <span className='font-heading text-xs'>50</span>Reviews
+        <span className='font-heading text-xs'>50</span> Reviews
       </p>
     </div>
   );
