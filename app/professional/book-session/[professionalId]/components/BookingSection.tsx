@@ -36,6 +36,12 @@ export default function BookingSection() {
         { value: "19:50-20:05", label: "7:50PM - 8:05PM", booked: false },
         { value: "20:10-20:25", label: "8:10PM - 8:25PM", booked: false },
         { value: "20:40-20:55", label: "8:40PM - 8:55PM", booked: false },
+        
+        { value: "18:30-18:45", label: "6:30PM - 6:45PM", booked: false },
+        { value: "18:50-19:05", label: "6:50PM - 7:05PM", booked: false },
+        { value: "19:50-20:05", label: "7:50PM - 8:05PM", booked: false },
+        { value: "20:10-20:25", label: "8:10PM - 8:25PM", booked: false },
+        { value: "20:40-20:55", label: "8:40PM - 8:55PM", booked: false },
     ];
 
     useEffect(() => {
@@ -48,7 +54,7 @@ export default function BookingSection() {
     }, [selectedTime, date]);
 
     return (
-        <div className='flex-1 h-full bg-white rounded-lg p-4 flex flex-col justify-between'>
+        <div className='flex-1 h-full md:h-screen lg:h-full border bg-white rounded-lg p-4 flex flex-col justify-between'>
             <ScrollArea className='max-md:h-[40rem] h-5/6'>
                 <div>
                     <h5 className='font-heading font-semibold text-xl'>
