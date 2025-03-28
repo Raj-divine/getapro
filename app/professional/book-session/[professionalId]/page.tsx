@@ -34,7 +34,7 @@ export default async function BookSessionPage({
                     </div>
 
                     <div className='max-lg:hidden w-[30%]'>
-                        <BookingSection />
+                        <BookingSection ratePerHour={data.hourly_rate} professionalId={professionalId} />
                     </div>
 
                     {/* for md screens */}
@@ -42,7 +42,7 @@ export default async function BookSessionPage({
                         <DetailsSection data={data} />
                         <div className='flex gap-3'>
                             <div>
-                                <BookingSection />
+                                <BookingSection ratePerHour={data.hourly_rate} professionalId={professionalId} />
                             </div>
                             <div>
                                 <ReviewSection />
@@ -53,7 +53,7 @@ export default async function BookSessionPage({
                     {/* for mobile screens */}
                     <div className='md:w-[70%] flex flex-col gap-5 w-full md:hidden'>
                         <DetailsSection data={data} />
-                        <BookingSection />
+                        <BookingSection ratePerHour={data.hourly_rate} professionalId={professionalId} />
                     </div>
 
                     <div className='md:hidden'>

@@ -13,7 +13,7 @@ import {
   FormMessage,
 } from './ui/form';
 import { Input } from './ui/input';
-import signUpAction from '@/app/actions/auth/signUpAction';
+import signUpAction from '@/app/actions/signUpAction';
 import { APP_ERRORS } from '@/config';
 import { toast } from 'sonner';
 import { useAuth } from '@/hooks/use-auth';
@@ -54,7 +54,7 @@ export default function SignUpForm({ type, setIsModalOpen }: { type: 'customer' 
     if (appError) {
       toast.error(APP_ERRORS[appError]);
     } else if (error) {
-      toast.error(error.message);
+      toast.error(`Something went wrong: ${error.message}`);
     } else if (!data?.user || !data.session) {
       toast.error('Something went wrong. Please try again later.');
     } else {

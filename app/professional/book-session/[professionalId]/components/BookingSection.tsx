@@ -1,5 +1,6 @@
 "use client";
 
+import BookingModal from "@/components/BookingModal";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverTrigger } from "@/components/ui/popover";
@@ -7,18 +8,21 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import UserSignUpModal from "@/components/UserSignUpModal";
 import MultiSelectButtons from "@/components/utils/MultiSelectButtons";
+import { useAuth } from "@/hooks/use-auth";
 import processSelectedTimes from "@/utils/processSelectedTimes";
 import { PopoverContent } from "@radix-ui/react-popover";
 import { formatDate } from "date-fns";
 import { Info } from "lucide-react";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
-export default function BookingSection() {
+export default function BookingSection({ ratePerHour, professionalId }: { ratePerHour: number, professionalId: string }) {
     const [date, setDate] = useState<Date | undefined>(new Date());
     const [selectedTime, setSelectedTime] = useState<string[]>([]);
-    const [sessions, setSessions] = useState<
-        { startTime: Date; duration: number }[]
-    >([]);
+    const [sessions, setSessions] = useState<{ startTime: Date; duration: number }[]>([]);
+    const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
+    const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+    const { user } = useAuth();
 
     // TODO: should be rendered dynamically
     const options = [
@@ -36,12 +40,6 @@ export default function BookingSection() {
         { value: "19:50-20:05", label: "7:50PM - 8:05PM", booked: false },
         { value: "20:10-20:25", label: "8:10PM - 8:25PM", booked: false },
         { value: "20:40-20:55", label: "8:40PM - 8:55PM", booked: false },
-        
-        { value: "18:30-18:45", label: "6:30PM - 6:45PM", booked: false },
-        { value: "18:50-19:05", label: "6:50PM - 7:05PM", booked: false },
-        { value: "19:50-20:05", label: "7:50PM - 8:05PM", booked: false },
-        { value: "20:10-20:25", label: "8:10PM - 8:25PM", booked: false },
-        { value: "20:40-20:55", label: "8:40PM - 8:55PM", booked: false },
     ];
 
     useEffect(() => {
@@ -52,6 +50,15 @@ export default function BookingSection() {
             setSessions([]);
         }
     }, [selectedTime, date]);
+
+    const handleBookSession = async () => {
+        if (!user) return setIsSignupModalOpen(true);
+        if (sessions.length) {
+            setIsBookingModalOpen(true);
+        } else {
+            toast.error('Please select at least one session');
+        }
+    };
 
     return (
         <div className='flex-1 h-full md:h-screen lg:h-full border bg-white rounded-lg p-4 flex flex-col justify-between'>
@@ -120,7 +127,7 @@ export default function BookingSection() {
                                 Your session will start at{" "}
                                 {formatDate(
                                     sessions[0].startTime,
-                                    "cccc, do MMMM, yyyy, h:mm aaa",
+                                    "h:mm aaa, cccc, do MMMM, yyyy",
                                 )}{" "}
                                 and last for {sessions[0].duration} minutes.
                             </span>
@@ -182,10 +189,10 @@ export default function BookingSection() {
                         </div>
                     </div>
                 )}
-                <UserSignUpModal>
-                    <Button>Book your session</Button>
-                </UserSignUpModal>
+                <Button onClick={handleBookSession}>Book your session</Button>
             </div>
+            <UserSignUpModal isOpen={isSignupModalOpen} setIsOpen={setIsSignupModalOpen} />
+            <BookingModal isOpen={isBookingModalOpen} setIsOpen={setIsBookingModalOpen} sessions={sessions} ratePerHour={ratePerHour} professionalId={professionalId} />
         </div>
     );
 }
