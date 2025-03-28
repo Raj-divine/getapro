@@ -1,16 +1,12 @@
 'use client';
 
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
-import { ReactNode, useState } from 'react';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from './ui/dialog';
+import { Dispatch, SetStateAction } from 'react';
 import SignUpForm from './SignUpForm';
 
-export default function UserSignUpModal({ children }: { children: ReactNode }) {
-    const [isOpen, setIsOpen] = useState(false);
+export default function UserSignUpModal({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: Dispatch<SetStateAction<boolean>> }) {
 
     return <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogTrigger asChild>
-            {children}
-        </DialogTrigger>
         <DialogContent>
             <DialogHeader>
                 <DialogTitle className='font-heading'>Sign Up</DialogTitle>

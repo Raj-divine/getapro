@@ -127,6 +127,70 @@ export type Database = {
           },
         ]
       }
+      sessions: {
+        Row: {
+          amount: number
+          created_at: string
+          customer_id: string
+          duration: number
+          id: number
+          professional_id: string
+          rate_per_hour: number
+          session_id: string
+          start_time: string
+          status: Database["public"]["Enums"]["Session status"]
+          updated_at: string | null
+        }
+        Insert: {
+          amount?: number
+          created_at?: string
+          customer_id?: string
+          duration?: number
+          id?: number
+          professional_id?: string
+          rate_per_hour?: number
+          session_id?: string
+          start_time?: string
+          status?: Database["public"]["Enums"]["Session status"]
+          updated_at?: string | null
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          customer_id?: string
+          duration?: number
+          id?: number
+          professional_id?: string
+          rate_per_hour?: number
+          session_id?: string
+          start_time?: string
+          status?: Database["public"]["Enums"]["Session status"]
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sessions_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "public_user_names"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "sessions_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["user_id"]
+          },
+          {
+            foreignKeyName: "sessions_professional_id_fkey"
+            columns: ["professional_id"]
+            isOneToOne: false
+            referencedRelation: "professionals"
+            referencedColumns: ["professional_id"]
+          },
+        ]
+      }
       users: {
         Row: {
           created_at: string
@@ -225,6 +289,14 @@ export type Database = {
       | "CHARTED ACCOUNTANT"
       | "COMPANY SECRETARY"
       | "COST MANAGEMENT ACCOUNTANT"
+      "Session status":
+      | "CREATED"
+      | "PAID"
+      | "INPROGRESS"
+      | "REFUNDED"
+      | "COMPLETED"
+      | "PAYMENT_FAILED"
+      | "RERFUND_INITIATED"
       "User Type": "CUSTOMER" | "PROFESSIONAL"
     }
     CompositeTypes: {
