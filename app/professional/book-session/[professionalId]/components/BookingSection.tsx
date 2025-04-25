@@ -192,7 +192,7 @@ export default function BookingSection({ ratePerHour, professionalId }: { ratePe
                 <Button onClick={handleBookSession}>Book your session</Button>
             </div>
             <UserSignUpModal isOpen={isSignupModalOpen} setIsOpen={setIsSignupModalOpen} />
-            <BookingModal isOpen={isBookingModalOpen} setIsOpen={setIsBookingModalOpen} sessions={sessions} ratePerHour={ratePerHour} professionalId={professionalId} />
+            <BookingModal isOpen={isBookingModalOpen} setIsOpen={setIsBookingModalOpen} sessions={sessions} ratePerHour={ratePerHour} professionalId={professionalId} onConfirm={() => setIsBookingModalOpen(false)} />
         </div>
     );
 }

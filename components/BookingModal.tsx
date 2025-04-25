@@ -30,9 +30,10 @@ interface BookingModalProps {
     sessions: { startTime: Date; duration: number }[]
     ratePerHour: number
     professionalId: string
+    onConfirm: () => void
 }
 
-export default function BookingModal({ isOpen, setIsOpen, sessions, ratePerHour, professionalId }: BookingModalProps) {
+export default function BookingModal({ isOpen, setIsOpen, sessions, ratePerHour, professionalId, onConfirm }: BookingModalProps) {
     const [isLoading, setIsLoading] = useState(false);
     const createSession = async () => {
         setIsLoading(true);
@@ -40,17 +41,16 @@ export default function BookingModal({ isOpen, setIsOpen, sessions, ratePerHour,
         const { error, appError, data } = await createSessionAction(sessions, professionalId);
         toast.dismiss(toastId);
 
-        console.log(error, appError);
-
         if (appError && APP_ERRORS[appError]) {
             toast.error(APP_ERRORS[appError] || 'Something went wrong, please try again later or contact support');
         } else if (error) {
             toast.error(`Something went wrong: ${error.message}`);
         } else {
+            onConfirm();
             toast.success('Session created successfully!');
         }
         setIsLoading(false);
-        console.log(data);
+        console.log(data); // use the sessionId to process payments
     };
 
     return <Dialog open={isOpen} onOpenChange={setIsOpen}>

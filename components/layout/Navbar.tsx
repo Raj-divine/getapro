@@ -7,6 +7,7 @@ import { Button } from '../ui/button';
 import SearchBar from '../SearchBar';
 import { LoginForm } from '../LoginForm';
 import { useAuth } from '@/hooks/use-auth';
+import UserProfileAvatar from '../utils/UserProfileAvatar';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -38,6 +39,10 @@ export default function Navbar() {
                         <LoginForm>
                             <Button className='mr-2'>Login</Button>
                         </LoginForm>
+                    )}
+
+                    {!isLoading && user && (
+                        <UserProfileAvatar />
                     )}
                 </div>
             </nav>
