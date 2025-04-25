@@ -56,6 +56,9 @@ export function LoginForm({ children }: { children: ReactNode }) {
             toast.success(`Welcome back ${uppercaseFirstLetter(data.user.user_metadata.first_name)}!`);
         }
     }
+
+    console.log(form.formState.isLoading);
+
     return <Dialog>
         <DialogTrigger asChild>
             {children}
@@ -172,7 +175,7 @@ export function LoginForm({ children }: { children: ReactNode }) {
                         </Button>
                     </div>
 
-                    <Button type='submit' className='w-full'>
+                    <Button disabled={form.formState.isLoading} type='submit' className='w-full'>
                         Login
                     </Button>
                 </form>

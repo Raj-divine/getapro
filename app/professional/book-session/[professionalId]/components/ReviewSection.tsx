@@ -31,9 +31,9 @@ export default function ReviewSection() {
                 </div>
                 <div className='mt-5 h-1/2 overflow-hidden'>
                     <Review
-                        name='tarun kushwaha'
-                        rating={1}
-                        date='2 days ago'
+                        name='rishabh gupta'
+                        rating={3}
+                        date='6 days ago'
                         content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.'
                     />
                     <Review
@@ -43,9 +43,9 @@ export default function ReviewSection() {
                         content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.'
                     />
                     <Review
-                        name='tarun kushwaha'
+                        name='Aman Sahu'
                         rating={4}
-                        date='2 days ago'
+                        date='4 days ago'
                         content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.'
                     />
                     {/* <Review name="tarun kushwaha" rating={4} date="2 days ago" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi." />
