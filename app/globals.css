@@ -1,63 +1,174 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --breakpoint-xxs: 375px;
+  --breakpoint-xs: 531px;
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  --font-heading: graphik, sans-serif;
+  --font-default: alpino, sans-serif;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= --theme(--breakpoint-xxs)) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 265 99% 56%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --radius: 0.5rem;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 265 99% 56%;
+    --radius: 0.3rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --primary-accent: 265 83% 57%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 265 99% 56%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 265 99% 56%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --primary-accent: 265 83% 57%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -71,63 +182,64 @@
   }
 }
 
-@font-face {
-  font-family: 'graphik';
-  src: url('/fonts/Graphik/Graphik-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-}
+@layer utilities {
+  @font-face {
+    font-family: 'graphik';
+    src: url('/fonts/Graphik/Graphik-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: 'graphik';
-  src: url('/fonts/Graphik/Graphik-BoldItalic.otf') format('opentype');
-  font-weight: 700;
-  font-style: italic;
-}
+  @font-face {
+    font-family: 'graphik';
+    src: url('/fonts/Graphik/Graphik-BoldItalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
 
-@font-face {
-  font-family: 'graphik';
-  src: url('/fonts/Graphik/Graphik-Semibold.otf') format('opentype');
-  font-weight: 600;
-  font-style: normal;
-}
+  @font-face {
+    font-family: 'graphik';
+    src: url('/fonts/Graphik/Graphik-Semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: 'graphik';
-  src: url('/fonts/Graphik/Graphik-SemiboldItalic.otf') format('opentype');
-  font-weight: 600;
-  font-style: italic;
-}
+  @font-face {
+    font-family: 'graphik';
+    src: url('/fonts/Graphik/Graphik-SemiboldItalic.otf') format('opentype');
+    font-weight: 600;
+    font-style: italic;
+  }
 
-@font-face {
-  font-family: 'graphik';
-  src: url('/fonts/Graphik/Graphik-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-}
+  @font-face {
+    font-family: 'graphik';
+    src: url('/fonts/Graphik/Graphik-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: 'graphik';
-  src: url('/fonts/Graphik/Graphik-MediumItalic.otf') format('opentype');
-  font-weight: 500;
-  font-style: italic;
-}
+  @font-face {
+    font-family: 'graphik';
+    src: url('/fonts/Graphik/Graphik-MediumItalic.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+  }
 
-@font-face {
-  font-family: 'graphik';
-  src: url('/fonts/Graphik/Graphik-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
+  @font-face {
+    font-family: 'graphik';
+    src: url('/fonts/Graphik/Graphik-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: 'graphik';
-  src: url('/fonts/Graphik/Graphik-RegularItalic.otf') format('opentype');
-  font-weight: normal;
-  font-style: italic;
-}
+  @font-face {
+    font-family: 'graphik';
+    src: url('/fonts/Graphik/Graphik-RegularItalic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+  }
 
-/**
+  /**
 * @license
 *
 * Font Family: Alpino
@@ -143,48 +255,53 @@
 *
 */
 
-@font-face {
-  font-family: 'Alpino-Light';
-  src: url('/fonts/Alpino-Light.woff2') format('woff2'),
-    url('/fonts/Alpino-Light.woff') format('woff'),
-    url('/fonts/Alpino-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
+  @font-face {
+    font-family: 'alpino';
+    src:
+      url('/fonts/Alpino/Alpino-Light.woff2') format('woff2'),
+      url('/fonts/Alpino/Alpino-Light.woff') format('woff'),
+      url('/fonts/Alpino/Alpino-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: 'Alpino-Regular';
-  src: url('/fonts/Alpino-Regular.woff2') format('woff2'),
-    url('/fonts/Alpino-Regular.woff') format('woff'),
-    url('/fonts/Alpino-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
+  @font-face {
+    font-family: 'alpino';
+    src:
+      url('/fonts/Alpino/Alpino-Regular.woff2') format('woff2'),
+      url('/fonts/Alpino/Alpino-Regular.woff') format('woff'),
+      url('/fonts/Alpino/Alpino-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: 'Alpino-Medium';
-  src: url('/fonts/Alpino-Medium.woff2') format('woff2'),
-    url('/fonts/Alpino-Medium.woff') format('woff'),
-    url('/fonts/Alpino-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
+  @font-face {
+    font-family: 'alpino';
+    src:
+      url('/fonts/Alpino/Alpino-Medium.woff2') format('woff2'),
+      url('/fonts/Alpino/Alpino-Medium.woff') format('woff'),
+      url('/fonts/Alpino/Alpino-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+  }
 
-@font-face {
-  font-family: 'Alpino-Bold';
-  src: url('/fonts/Alpino-Bold.woff2') format('woff2'),
-    url('/fonts/Alpino-Bold.woff') format('woff'),
-    url('/fonts/Alpino-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
+  @font-face {
+    font-family: 'alpino';
+    src:
+      url('/fonts/Alpino/Alpino-Bold.woff2') format('woff2'),
+      url('/fonts/Alpino/Alpino-Bold.woff') format('woff'),
+      url('/fonts/Alpino/Alpino-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+  }
 
-/*---break---
+  /*---break---
 */
+}
 
 @layer base {
   * {

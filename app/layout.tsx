@@ -1,6 +1,6 @@
 import { Toaster } from 'sonner';
 import './globals.css';
-import Navbar from '@/components/layout/Navbar';
+import { AuthProvider } from './context/authContext';
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -15,14 +15,15 @@ export const metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang='en'>
       <body className='font-default'>
-      <Navbar />
-        {children}
-        <Toaster richColors />
+        <AuthProvider>
+          {children}
+          <Toaster richColors />
+        </AuthProvider>
       </body>
     </html>
   );
